@@ -1,0 +1,93 @@
+.header {
+  background-color: #581845;
+  padding: 1%;
+  height: 170px
+}
+
+body { 
+  background-image: url('https://ideasphere.com/wp-content/uploads/2016/08/Savin-NY-Website-Background-Web-1.jpg')
+}
+
+.catalog {
+  padding-left: 9%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+}
+
+.login {
+  background-color: #fff;
+  text-align: center;
+}
+
+.deepshadow{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 80px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+    color: #e0dfdc;
+    letter-spacing: .1em;
+    text-shadow: 
+      0 -1px 0 #fff, 
+      0 1px 0 #2e2e2e, 
+      0 2px 0 #2c2c2c, 
+      0 3px 0 #2a2a2a, 
+      0 4px 0 #282828, 
+      0 5px 0 #262626, 
+      0 6px 0 #242424, 
+      0 7px 0 #222, 
+      0 8px 0 #202020, 
+      0 9px 0 #1e1e1e, 
+      0 10px 0 #1c1c1c, 
+      0 11px 0 #1a1a1a, 
+      0 12px 0 #181818, 
+      0 13px 0 #161616, 
+      0 14px 0 #141414, 
+      0 15px 0 #121212, 
+      0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+a:hover {
+  text-decoration: none;
+  color: #581845;
+  text-shadow: 0 -1px 0 #fff;
+
+}
+
+ul  {
+  font-size: 200%;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  letter-spacing: 4px;
+  padding-left: 1%;
+  padding-right: 1%;
+  color:#000000;
+  text-shadow: 
+      0 -1px 0 #fff, 
+      0 1px 0 #2e2e2e, 
+      0 2px 0 #2c2c2c, 
+      0 3px 0 #2a2a2a
+}
+
+.addItem{
+  font-size: 300%;
+  padding-Top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.row {height: 170px}
+   
+@media screen and (max-width: 767px) {
+    body {
+      height: auto;
+      padding: 15px;
+    }
+    .row {
+      height: auto;
+    } 
+}

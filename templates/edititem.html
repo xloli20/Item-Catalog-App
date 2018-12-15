@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row header" >
+	<div class="col-md-6 title">
+		<h1 class="deepshadow">
+			<a href="{{url_for('showCatalog')}}">
+			     Item Catalog
+		    </a>
+	    </h1>
+	</div>
+	<div>
+					{%if 'username' not in session %}
+			<a class="Login" href="{{url_for('showLogin')}}">Login </a>
+			{% else %}
+			<a class="Login" href="{{url_for('gdisconnect')}}">Logout </a>
+			{% endif %}
+	</div>
+</div>
+	<div class="row">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h1>Edit {{ item.title }}</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1">
+			<form action="{{url_for('edititem', genre_id = item.genre_id, item_id = item.id,)}}" method = "post">
+				<div class="form-group">
+				<label for="name">Item Name:</label>
+				<input type ="text" class="form-control" maxlength="100" value="{{item.name}}" name="name">
+				<label for="name" class="margin-top">Description:</label>
+				<input type ="textarea" class="form-control"value="{{item.description}}"  name="description">
+				<div class="padding-bottom"></div>
+				<select class="margin-top" name="genre">
+					{% for genre in genres %}
+						 <option> {{genre.name}} </option>
+					{% endfor %}
+				</select>
+				<div class="margin-top"></div>
+				<input type="submit" type="submit" value="Edit!"/>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

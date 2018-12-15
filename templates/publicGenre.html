@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row header" >
+	<div class="col-md-6 title">
+		<h1 class="deepshadow">
+			<a href="{{url_for('showCatalog')}}">
+			     Item Catalog
+		    </a>
+	    </h1>
+	</div>
+	<div>
+					{%if 'username' not in session %}
+			<a class="Login" href="{{url_for('showLogin')}}">Login </a>
+			{% else %}
+			<a class="Login" href="{{url_for('gdisconnect')}}">Logout </a>
+			{% endif %}
+	</div>
+</div>
+
+	<div class="row">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<h1>{{ genre.name }}</h1>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+
+		</div>
+		<div class="col-md-7"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul>
+						{% for message in messages %}
+							 <li> <strong> {{ message }} </strong> </li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+	</div>
+	{% if items !=[] %}
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				{% for i in items %}
+					<div>
+						<h3>{{i.title}}</h3>
+						<p>{{i.description}}</p>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="col-md-11"></div>
+		</div>
+	{% endif %}
+{% endblock %}

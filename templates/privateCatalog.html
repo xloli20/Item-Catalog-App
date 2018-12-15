@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row header" >
+  <div class="col-md-6 title">
+    <h1 class="deepshadow">
+      <a href="{{url_for('showCatalog')}}">
+           Item Catalog
+        </a>
+      </h1>
+  </div>
+  <div>
+          {%if 'username' not in session %}
+      <a class="Login" href="{{url_for('showLogin')}}">Login </a>
+      {% else %}
+      <a class="Login" href="{{url_for('gdisconnect')}}">Logout </a>
+      {% endif %}
+  </div>
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="row text-center ">
+  <span class='col-12 flash'> <strong> {{ message }} </strong> </span>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div calss='row'>
+  <div class='col-md-12 addItem'>
+    <a href="{{url_for('newGenre')}}">Add new item</a>
+    <i class="fas fa-plus"></i>
+  </div>
+</div>
+<div class='row catalog'>
+  <div class='col-md-6'>
+    <h2 class='subject'> Genres </h2>
+    <ul>
+      {% for genre in genres %}
+      <a href={{url_for('showGenre',genre_id=genre.id)}}>
+        <p>{{genre.name}}</p>
+      </a>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class='col-md-6'>
+    <h2 class='subject'> Latest Items </h2>
+    <div>
+      <ul>
+        {% for i in items %}
+        <p><a href={{url_for('showitem',genre_id=i.genre_id, item_id=i.id)}}>{{i.title}}</a></p>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  {% endblock %}

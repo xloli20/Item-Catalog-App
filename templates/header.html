@@ -1,0 +1,16 @@
+<div class="header" >
+	<div class="col-md-6 title">
+		<h1 class="deepshadow">
+			<a href="{{url_for('showCatalog')}}">
+			     Item Catalog
+		    </a>
+	    </h1>
+	</div>
+	<div>
+					{%if 'username' not in session %}
+			<a class="Login" href="{{url_for('showLogin')}}">Login </a>
+			{% else %}
+			<a class="Login" href="{{url_for('gdisconnect')}}">Logout </a>
+			{% endif %}
+	</div>
+</div>
